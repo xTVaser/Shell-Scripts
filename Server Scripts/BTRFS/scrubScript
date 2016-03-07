@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Running a BTRFS Scrub, expect slowdowns for the next 3-5 minutes" | sudo wall
+sudo btrfs scrub start -Bd / > scrubResults
+echo "Scrub Complete"
+echo "Emailing Tyler"
+mail -s "Daily BTRFS Scrub Results" xtvaser@gmail.com < scrubResults
+mail -s "Daily BTRFS Scrub Results" fabcampioni@gmail.com < scrubResults
+mail -s "Daily BTRFS Scrub Results" robrownn@gmail.com < scrubResults
+echo "BTRFS Scrub Complete, thanks for your patience" | sudo wall
